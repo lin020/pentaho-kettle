@@ -24,6 +24,7 @@ package org.pentaho.di.core.database;
 
 import org.pentaho.di.core.Const;
 import org.pentaho.di.core.row.ValueMetaInterface;
+import org.pentaho.di.core.util.Utils;
 
 /**
  * Contains Firebird specific information through static final members
@@ -67,7 +68,7 @@ public class KingbaseESDatabaseMeta extends BaseDatabaseMeta implements Database
     if ( getAccessType() == DatabaseMeta.TYPE_ACCESS_ODBC ) {
       return "sun.jdbc.odbc.JdbcOdbcDriver";
     } else {
-      return "com.kingbase.Driver";
+      return "com.kingbase8.Driver";
     }
   }
 
@@ -76,7 +77,11 @@ public class KingbaseESDatabaseMeta extends BaseDatabaseMeta implements Database
     if ( getAccessType() == DatabaseMeta.TYPE_ACCESS_ODBC ) {
       return "jdbc:odbc:" + getDatabaseName();
     } else {
-      return "jdbc:kingbase://" + hostname + ":" + port + "/" + databaseName;
+      if ( Utils.isEmpty( port ) ) {
+        return "jdbc:kingbase8://" + hostname + "/" + databaseName;
+      } else {
+        return "jdbc:kingbase8://" + hostname + ":" + port + "/" + databaseName;
+      }
     }
   }
 
@@ -312,8 +317,8 @@ public class KingbaseESDatabaseMeta extends BaseDatabaseMeta implements Database
   }
 
   /**
-   * @param the
-   *          schema name to search in or null if you want to search the whole DB
+   * @param schemaName
+   *          the schema name to search in or null if you want to search the whole DB
    * @return The SQL on this database to get a list of stored procedures.
    */
   public String getSQLListOfProcedures( String schemaName ) {
@@ -447,7 +452,7 @@ public class KingbaseESDatabaseMeta extends BaseDatabaseMeta implements Database
 
   @Override
   public String[] getUsedLibraries() {
-    return new String[] { "kingbasejdbc4.jar" };
+    return new String[] { "kingbase8-8.6.0.jar" };
   }
 
   /**

@@ -294,7 +294,7 @@
     <repository>
       <id>pentaho-public</id>
       <name>Pentaho Public</name>
-      <url>http://nexus.pentaho.org/content/groups/omni/</url>
+      <url>https://repo.orl.eng.hitachivantara.com/artifactory/pnt-mvn/</url>
       <releases>
         <enabled>true</enabled>
         <updatePolicy>daily</updatePolicy>
@@ -304,6 +304,32 @@
         <updatePolicy>interval:15</updatePolicy>
       </snapshots>
     </repository>
+    <repository>
+      <id>tension</id>
+      <name>Tension Public</name>
+      <url>http://192.168.139.13:1311/nexus/content/groups/public/</url>
+    </repository>
   </repositories>
+
+  <pluginRepositories>
+    <pluginRepository>
+      <id>pentaho-public</id>
+      <name>Pentaho Public</name>
+      <url>https://repo.orl.eng.hitachivantara.com/artifactory/pnt-mvn/</url>
+      <releases>
+        <enabled>true</enabled>
+        <updatePolicy>daily</updatePolicy>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+        <updatePolicy>interval:15</updatePolicy>
+      </snapshots>
+    </pluginRepository>
+    <pluginRepository>
+      <id>tension</id>
+      <name>Tension Public</name>
+      <url>http://192.168.139.13:1311/nexus/content/groups/public/</url>
+    </pluginRepository>
+  </pluginRepositories>
 
 </project>

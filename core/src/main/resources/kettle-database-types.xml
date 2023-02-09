@@ -23,7 +23,12 @@
   <database-type id="DERBY">
     <description>Apache Derby</description>
     <classname>org.pentaho.di.core.database.DerbyDatabaseMeta</classname>
-  </database-type>                                                       
+  </database-type>
+
+  <database-type id="DMDBMS">
+    <description>达梦数据库</description>
+    <classname>org.pentaho.di.core.database.DMDatabaseMeta</classname>
+  </database-type>
 
   <database-type id="EXASOL4">
     <description>Exasol 4</description>
